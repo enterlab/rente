@@ -1,4 +1,5 @@
-(ns rente.client.views)
+(ns rente.client.views
+  (:require [rente.client.ws :as socket]))
 
 (defn main [data]
   [:div
@@ -8,5 +9,9 @@
    [:span "And sente seems to work too.."]
    [:br]
    [:span "And figwheel.. w00t!"]
+   [:br]
+   [:button {:on-click socket/test-socket-callback} "Send Message Callback"]
+   [:br]
+   [:button {:on-click socket/test-socket-event} "Send Message Event"]
    ])
 
