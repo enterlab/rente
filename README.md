@@ -1,24 +1,14 @@
 # rente
 
-FIXME: description
+Intended for internal use.
 
-## Installation
-
-Download from http://example.com/FIXME.
+Inspired by https://github.com/gsnewmark/gsn-spa-template.git
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar rente-0.1.0-SNAPSHOT-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Any Other Sections
-## That You Think
-## Might be Useful
+## lein run
+## lein figwheel
+## point server to localhost port 8080
 
 ## License
 
