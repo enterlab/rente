@@ -7,6 +7,7 @@ Inspired by https://github.com/gsnewmark/gsn-spa-template.git
 ## Usage
 
 lein run
+
 lein figwheel
 
 point server to localhost port 8080
