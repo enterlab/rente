@@ -45,10 +45,10 @@
 
              :dev [:dev-config
                    {:dependencies [[org.clojure/tools.namespace "0.2.7"]
-                                   [figwheel "0.1.5-SNAPSHOT"]
+                                   [figwheel "0.1.7-SNAPSHOT"]
                                    [org.webjars/react "0.12.0"]]
 
-                    :plugins [[lein-figwheel "0.1.5-SNAPSHOT"]
+                    :plugins [[lein-figwheel "0.1.7-SNAPSHOT"]
                               [lein-environ "1.0.0"]]
 
                     :source-paths ["dev"]
