@@ -11,7 +11,7 @@
 
 (defmethod event-msg-handler :rente/testevent
   [{:as ev-msg :keys [?data]}]
-    (js/console.log "Channel socket successfully established!"))
+    (js/console.log "Testevent received from server"))
 
 (defmethod event-msg-handler :chsk/state
   [{:as ev-msg :keys [?data]}]
