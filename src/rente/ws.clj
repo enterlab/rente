@@ -22,7 +22,7 @@
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
   (if ?reply-fn
     (?reply-fn [:rente/testevent {:message (str "Hello socket from server Callback, received: " ?data)}])
-    (send-fn (-> ring-req :session :uid) [:rente/testevent {:message (str "Hello socket from server Event (no callback), received: " ?data)}])))
+    (send-fn :sente/all-users-without-uid [:rente/testevent {:message (str "Hello socket from server Event (no callback), received: " ?data)}])))
 
 (defmethod event-msg-handler :default ; Fallback
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
