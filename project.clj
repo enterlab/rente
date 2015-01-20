@@ -22,7 +22,7 @@
                  [com.cognitect/transit-cljs "0.8.199"]
 
                  [reagent "0.5.0-alpha"]
-                 [org.webjars/bootstrap "3.3.1"]]
+                 [org.webjars/bootstrap "3.3.2"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
 
