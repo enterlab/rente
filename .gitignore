@@ -9,5 +9,5 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 /resources/public/js/*.js
-/dev-resources/public/js/*.js
+/dev-resources
 profiles.clj
