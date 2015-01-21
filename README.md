@@ -9,7 +9,7 @@ lein figwheel
 Wait for figwheel to finish and notify browser of changed files! Then in another terminal tab:
 
 ```
-lein figwheel
+lein run
 ```
 
 point browser to:
