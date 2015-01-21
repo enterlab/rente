@@ -8,6 +8,6 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
-/resources/public/js
-/dev-resources/public/js
+/resources/public/js/*.js
+/dev-resources/public/js/*.js
 profiles.clj
