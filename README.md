@@ -15,6 +15,8 @@ lein figwheel
 point browser to:
 http://localhost:8080
 
+Open up your browser console, which will log the data returned from the server when you click either of the 2 buttons for socket with/without callback (pull/push).
+
 ## Deploy to Heroku
 
 To make Rente run on Heroku, you need to let Leiningen on Heroku use the "package" build task.
