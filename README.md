@@ -1,16 +1,19 @@
 ## Usage
 
-```
-lein run
-```
-
-In another tab:
+Clone, and cd into the `rente` folder.
 
 ```
 lein figwheel
 ```
 
-point browser to http://localhost:8080
+Wait for figwheel to finish and notify browser of changed files! Then in another terminal tab:
+
+```
+lein figwheel
+```
+
+point browser to:
+http://localhost:8080
 
 ## Deploy to Heroku
 
