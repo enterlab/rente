@@ -44,7 +44,7 @@
              :dev [:dev-config
                    {:dependencies [[org.clojure/tools.namespace "0.2.7"]
                                    [figwheel "0.2.1-SNAPSHOT"]
-                                   [org.webjars/react "0.12.1"]]
+                                   [org.webjars/react "0.12.2"]]
 
                     :plugins [[lein-figwheel "0.2.1-SNAPSHOT" :exclusions [org.clojure/tools.reader org.clojure/clojurescript clj-stacktrace]]
                               [lein-environ "1.0.0"]]
