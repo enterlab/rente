@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
-                 [org.clojure/clojurescript "0.0-2740"]
+                 [org.clojure/clojurescript "0.0-2760"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.2"]
                  [environ "1.0.0"]
@@ -19,9 +19,9 @@
 
                  [com.taoensso/sente "1.3.0" :exclusions [org.clojure/tools.reader]]
                  [com.cognitect/transit-clj "0.8.259" :exclusions [commons-codec]]
-                 [com.cognitect/transit-cljs "0.8.202"]
+                 [com.cognitect/transit-cljs "0.8.205"]
 
-                 [reagent "0.5.0-alpha"]
+                 [reagent "0.5.0-alpha2"]
                  [org.webjars/bootstrap "3.3.2"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
