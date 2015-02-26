@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
-                 [org.clojure/clojurescript "0.0-2850"]
+                 [org.clojure/clojurescript "0.0-2913"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.2"]
                  [environ "1.0.0"]
@@ -14,11 +14,11 @@
 
                  [ring/ring-core "1.3.2"]
                  [ring/ring-defaults "0.1.4"]
-                 [compojure "1.3.1"]
+                 [compojure "1.3.2"]
                  [http-kit "2.1.19"]
 
                  [com.taoensso/sente "1.3.0" :exclusions [org.clojure/tools.reader]]
-                 [com.cognitect/transit-clj "0.8.259" :exclusions [commons-codec]]
+                 [com.cognitect/transit-clj "0.8.269" :exclusions [commons-codec]]
                  [com.cognitect/transit-cljs "0.8.205"]
 
                  [reagent "0.5.0-alpha3"]
