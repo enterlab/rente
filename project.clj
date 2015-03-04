@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
                  [org.clojure/clojurescript "0.0-2913"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
-                 [com.stuartsierra/component "0.2.2"]
+                 [com.stuartsierra/component "0.2.3"]
                  [environ "1.0.0"]
                  [ch.qos.logback/logback-classic "1.1.2"]
                  [org.clojure/tools.logging "0.3.1"]
