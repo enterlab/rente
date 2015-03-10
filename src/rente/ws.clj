@@ -2,6 +2,7 @@
   (:require [clojure.tools.logging :as log]
             [com.stuartsierra.component :as component]
             [clojure.core.async :as async]
+            [taoensso.sente.server-adapters.http-kit :as sente-http]
             [taoensso.sente :as sente]
             [taoensso.sente.packers.transit :as sente-transit]))
 
@@ -45,7 +46,7 @@
 
             {:keys [ch-recv send-fn connected-uids
                     ajax-post-fn ajax-get-or-ws-handshake-fn]}
-            (sente/make-channel-socket! {:packer packer})]
+            (sente/make-channel-socket! sente-http/http-kit-adapter {:packer packer})]
         (log/debug "WebSocket connection started")
         (assoc component
           :ch-recv ch-recv
