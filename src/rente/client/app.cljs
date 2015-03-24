@@ -16,22 +16,9 @@
   [data [_ msg]]
   (swap! data update-in [:messages] #(conj % msg)))
 
-(defn event-loop [data]
-  (go-loop []
-    (let [msg (<! ws/ch-chsk)]
-      (when msg
-        (let [[op arg] (:event msg)]
-          (case op
-            :chsk/recv (handle-event data op)
-            nil))
-        (recur)))))
-
-
 (defn app [data]
-  (event-loop data)
   (:re-render-flip @data)
   [views/main data])
-
 
 (defn ^:export main []
   (when-let [root (.getElementById js/document "app")]
