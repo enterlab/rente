@@ -1,5 +1,5 @@
-(defproject rente "0.1.0"
-  :description "Proof of Concept for running reagent+sente on Heroku"
+(defproject rente "1.0.0"
+  :description "A barebones Reagent+Sente app deployable to Heroku. Uses Figwheel (for development build) and Component (lifecycle management)."
   :url "http://enterlab.com"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
