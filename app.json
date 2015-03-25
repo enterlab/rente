@@ -1,5 +1,5 @@
 {
-  "name": "Rente: Reagent + Sente sample app",
+  "name": "Rente: Reagent + Sente",
   "description": "A barebones Reagent+Sente app deployable to Heroku. Uses Figwheel (for development build) and Component (lifecycle management).",
   "repository": "https://github.com/enterlab/rente",
   "website": "http://enterlab.com/",
