@@ -30,7 +30,7 @@ To do this, and point Leiningen on Heroku to the "package" target, add the follo
 heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-clojure LEIN_BUILD_TASK=package
 ```
 
-## Deploy
+Everything is nicely wrapped in shiny purple foil if you simply click this button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
