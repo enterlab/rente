@@ -3,5 +3,8 @@
   "description": "A barebones Reagent+Sente app deployable to Heroku. Uses Figwheel (for development build) and Component (lifecycle management).",
   "repository": "https://github.com/enterlab/rente",
   "website": "http://enterlab.com/",
-  "keywords": ["rente", "clojure", "clojurescript", "react", "web socket", "reagent", "sente", "heroku", "figwheel", "component", "enterlab"]
+  "keywords": ["rente", "clojure", "clojurescript", "react", "web socket", "reagent", "sente", "heroku", "figwheel", "component", "enterlab"],
+  "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-clojure",
+    "LEIN_BUILD_TASK": "package"}
 }
