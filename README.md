@@ -32,7 +32,6 @@ heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-cloju
 
 ## Deploy
 
-Deploy to Heroku:
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Enjoy!
