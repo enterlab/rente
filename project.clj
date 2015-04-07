@@ -4,8 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
-                 [org.clojure/clojurescript "0.0-3165"]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha6"]
+                 [org.clojure/clojurescript "0.0-3178"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.3"]
                  [environ "1.0.0"]
@@ -14,7 +14,7 @@
 
                  [ring/ring-core "1.3.2"]
                  [ring/ring-defaults "0.1.4"]
-                 [compojure "1.3.2"]
+                 [compojure "1.3.3"]
                  [http-kit "2.1.19"]
 
                  [com.taoensso/sente "1.4.1" :exclusions [org.clojure/tools.reader]]
