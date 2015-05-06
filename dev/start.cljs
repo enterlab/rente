@@ -1,4 +1,4 @@
-(ns start
+(ns rente.start
   (:require [figwheel.client :as fw]
             [rente.client.app :as app]))
 
