@@ -11,3 +11,4 @@ pom.xml.asc
 /resources/public/js/*.js
 /dev-resources
 profiles.clj
+figwheel_server.log
