@@ -24,7 +24,7 @@
                  [reagent "0.5.0"]
                  [org.webjars/bootstrap "3.3.4"]]
 
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.5"]]
 
   :source-paths ["src"]
   :resource-paths ["resources" "resources-index/prod"]
@@ -43,10 +43,10 @@
 
              :dev [:dev-config
                    {:dependencies [[org.clojure/tools.namespace "0.2.7"]
-                                   [figwheel "0.2.1-SNAPSHOT"]
+                                   [figwheel "0.2.5"]
                                    [org.webjars/react "0.12.2"]]
 
-                    :plugins [[lein-figwheel "0.2.1-SNAPSHOT" :exclusions [org.clojure/tools.reader org.clojure/clojurescript clj-stacktrace]]
+                    :plugins [[lein-figwheel "0.2.5" :exclusions [org.clojure/tools.reader org.clojure/clojurescript clj-stacktrace]]
                               [lein-environ "1.0.0"]]
 
                     :source-paths ["dev"]
@@ -62,6 +62,7 @@
 
                     :figwheel {:http-server-root "public"
                                :port 3449
+                               :repl false
                                :css-dirs ["resources/public/css"]}}]
 
              :prod {:cljsbuild
