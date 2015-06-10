@@ -17,7 +17,7 @@
                  [compojure "1.3.4"]
                  [http-kit "2.1.19"]
 
-                 [com.taoensso/sente "1.4.1" :exclusions [org.clojure/tools.reader]]
+                 [com.taoensso/sente "1.5.0" :exclusions [org.clojure/tools.reader]]
                  [com.cognitect/transit-clj "0.8.275" :exclusions [commons-codec]]
                  [com.cognitect/transit-cljs "0.8.220"]
 
