@@ -45,6 +45,10 @@ Enjoy!
 
 Please don't hesitate to contact us if you have any questions/suggestions etc.!
 
+## Mobile App?
+
+If you're interested in seeing how to use this setup to build a "native"-ish mobile app for iOS and Android built with Cordova, take a look at Enterlab CorDeviCLJS here: https://github.com/enterlab/cordevicljs.
+
 ## Special Thanks goes to
 
 
