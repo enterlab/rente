@@ -17,6 +17,25 @@ http://localhost:8080
 
 Open up your browser console, which will log the data returned from the server when you click either of the 2 buttons for socket with/without callback (pull/push).
 
+## Noobs
+
+Newbies can start here.
+
+Install Leiningen - it may seem hard, but only takes a minute (at least on a real OS, perhaps up to 5 minutes on Windows):
+http://leiningen.org/
+
+If you don't know Clojure, start here:
+http://clojure.org
+
+Other entry level resources:
+
+https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome
+
+http://www.tryclj.com/
+
+http://www.clojurebook.com/
+
+
 ## Rente Demo
 
 Rente can be seen running here:
