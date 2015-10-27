@@ -4,14 +4,11 @@
 (defn main [data]
   [:div
    [:h1 (:title @data)]
-   [:span "Hello world! This is reagent!"]
+   [:div "Hello world! This is reagent speaking!"]
    [:br]
-   [:span "And sente seems to work too.."]
-   [:br]
-   [:span "And figwheel.. w00t!"]
+   [:div "Look in your browsers developer console to see the web socket communication when clicking below buttons."]
    [:br]
    [:button {:on-click socket/test-socket-callback} "Send Message Callback"]
    [:br]
-   [:button {:on-click socket/test-socket-event} "Send Message Event"]
-   ])
+   [:button {:on-click socket/test-socket-event} "Send Message Event"]])
 
