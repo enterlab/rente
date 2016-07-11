@@ -16,10 +16,10 @@
     (js/console.log "Unhandled event: %s" (pr-str event)))
 
 (defmethod event-msg-handler :chsk/state
-  [{:as ev-msg :keys [?data]}]
-  (if (= ?data {:first-open? true})
+  [old-ev-msg new-ev-msg]
+  (if (= (:?data new-ev-msg) {:first-open? true})
     (js/console.log "Channel socket successfully established!")
-    (js/console.log "Channel socket state change: %s" (pr-str ?data))))
+    (js/console.log "Channel socket state change: %s" (pr-str new-ev-msg))))
 
 (defmethod event-msg-handler :chsk/recv
   [{:as ev-msg :keys [?data]}]
@@ -28,8 +28,7 @@
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))
 
-(let [packer (sente-transit/get-flexi-packer :edn)
-
+(let [packer :edn
       {:keys [chsk ch-recv send-fn state]}
       (sente/make-channel-socket! "/chsk" {:type :auto :packer packer})]
   (def chsk       chsk)
