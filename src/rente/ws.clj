@@ -12,9 +12,9 @@
 
 (defmethod event-msg-handler :chsk/ws-ping
   [_]
-  (swap! ping-counts inc)
-  (when (= 0 (mod @ping-counts 10))
-    (log/info "Ping counts:" @ping-counts)))
+  (let [c (swap! ping-counts inc)]
+    (when (zero? (mod c 10))
+      (log/info "Ping counts:" c))))
 
 (defmethod event-msg-handler :rente/testevent
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
@@ -65,7 +65,7 @@
   ((:send-fn ws-connection) user-id event))
 
 (defn broadcast! [ws-connection event]
-  (let [uids (ws-connection :connected-uids )]
+  (let [uids (ws-connection :connected-uids)]
     (doseq [uid (:any @uids)] (send! ws-connection uid event))))
 
 (defn ring-handlers [ws-connection]
