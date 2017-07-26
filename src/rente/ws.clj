@@ -14,7 +14,7 @@
   [_]
   (swap! ping-counts inc)
   (when (= 0 (mod @ping-counts 10))
-    (println "ping counts: " @ping-counts)))
+    (log/info "Ping counts:" @ping-counts)))
 
 (defmethod event-msg-handler :rente/testevent
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
@@ -26,7 +26,7 @@
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
   (let [session (:session ring-req)
         uid     (:uid     session)]
-    (println "Unhandled event: %s" event)
+    (log/info "Unhandled event:" event)
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
