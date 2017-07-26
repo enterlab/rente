@@ -9,15 +9,12 @@
 (def ping-counts (atom 0))
 
 (defmulti event-msg-handler :id) ; Dispatch on event-id
-;; Wrap for logging, catching, etc.:
-(defn     event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  (event-msg-handler ev-msg))
 
 (defmethod event-msg-handler :chsk/ws-ping
   [_]
-    (swap! ping-counts inc)
-    (when (= 0 (mod @ping-counts 10))
-      (println "ping counts: " @ping-counts)))
+  (swap! ping-counts inc)
+  (when (= 0 (mod @ping-counts 10))
+    (println "ping counts: " @ping-counts)))
 
 (defmethod event-msg-handler :rente/testevent
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
@@ -32,6 +29,10 @@
     (println "Unhandled event: %s" event)
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
+
+;; Wrap for logging, catching, etc.:
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+  (event-msg-handler ev-msg))
 
 (defrecord WSRingHandlers [ajax-post-fn ajax-get-or-ws-handshake-fn])
 
