@@ -16,7 +16,7 @@
 (def system nil)
 
 (defn init []
-  (alter-var-root #'system (fn [] (system/system (config/get-config)))))
+  (alter-var-root #'system (fn [_] (system/system (config/get-config)))))
 
 (defn start []
   (alter-var-root #'system component/start))
