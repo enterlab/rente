@@ -16,8 +16,8 @@
     (js/console.log "Unhandled event: %s" (pr-str event)))
 
 (defmethod event-msg-handler :chsk/state
-  [old-ev-msg new-ev-msg]
-  (if (= (:?data new-ev-msg) {:first-open? true})
+  [{[_old-ev-msg new-ev-msg] :?data, :as ev-msg}]
+  (if (:first-open? new-ev-msg)
     (js/console.log "Channel socket successfully established!")
     (js/console.log "Channel socket state change: %s" (pr-str new-ev-msg))))
 
