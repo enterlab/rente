@@ -50,13 +50,12 @@
           :ch-recv ch-recv
           :connected-uids connected-uids
           :send-fn send-fn
-          :stop-the-thing (sente/start-chsk-router! ch-recv event-msg-handler*)
+          :stop-fn (sente/start-chsk-router! ch-recv event-msg-handler*)
           :ring-handlers
           (->WSRingHandlers ajax-post-fn ajax-get-or-ws-handshake-fn)))))
   (stop [component]
-    (when ch-recv (async/close! ch-recv))
+    (when-let [stop-fn (:stop-fn component)] (stop-fn))
     (log/debug "WebSocket connection stopped")
-    (:stop-the-thing component)
     (assoc component
       :ch-recv nil :connected-uids nil :send-fn nil :ring-handlers nil)))
 
@@ -74,6 +73,3 @@
 
 (defn new-ws-connection []
   (map->WSConnection {}))
-
-
-
