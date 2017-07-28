@@ -9,15 +9,14 @@
   (js/console.log "PUSHed :rente/testevent from server: %s " (pr-str event)))
 
 (defmulti event-msg-handler :id) ; Dispatch on event-id
-;; Wrap for logging, catching, etc.:
 
 (defmethod event-msg-handler :default ; Fallback
-    [{:as ev-msg :keys [event]}]
-    (js/console.log "Unhandled event: %s" (pr-str event)))
+  [{:as ev-msg :keys [event]}]
+  (js/console.log "Unhandled event: %s" (pr-str event)))
 
 (defmethod event-msg-handler :chsk/state
-  [old-ev-msg new-ev-msg]
-  (if (= (:?data new-ev-msg) {:first-open? true})
+  [{[_old-ev-msg new-ev-msg] :?data, :as ev-msg}]
+  (if (:first-open? new-ev-msg)
     (js/console.log "Channel socket successfully established!")
     (js/console.log "Channel socket state change: %s" (pr-str new-ev-msg))))
 
@@ -25,6 +24,7 @@
   [{:as ev-msg :keys [?data]}]
   (push-msg-handler ?data))
 
+;; Wrap for logging, catching, etc.:
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))
 
@@ -40,9 +40,9 @@
 
 (defn test-socket-callback []
   (chsk-send!
-    [:rente/testevent {:message "Hello socket Callback!"}]
-    2000
-    #(js/console.log "CALLBACK from server: " (pr-str %))))
+   [:rente/testevent {:message "Hello socket Callback!"}]
+   2000
+   #(js/console.log "CALLBACK from server: " (pr-str %))))
 
 (defn test-socket-event []
   (chsk-send! [:rente/testevent {:message "Hello socket Event!"}]))

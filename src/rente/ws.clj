@@ -9,15 +9,12 @@
 (def ping-counts (atom 0))
 
 (defmulti event-msg-handler :id) ; Dispatch on event-id
-;; Wrap for logging, catching, etc.:
-(defn     event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
-  (event-msg-handler ev-msg))
 
 (defmethod event-msg-handler :chsk/ws-ping
   [_]
-    (swap! ping-counts inc)
-    (when (= 0 (mod @ping-counts 10))
-      (println "ping counts: " @ping-counts)))
+  (let [c (swap! ping-counts inc)]
+    (when (zero? (mod c 10))
+      (log/info "Ping counts:" c))))
 
 (defmethod event-msg-handler :rente/testevent
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
@@ -29,9 +26,13 @@
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
   (let [session (:session ring-req)
         uid     (:uid     session)]
-    (println "Unhandled event: %s" event)
+    (log/info "Unhandled event:" event)
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
+
+;; Wrap for logging, catching, etc.:
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+  (event-msg-handler ev-msg))
 
 (defrecord WSRingHandlers [ajax-post-fn ajax-get-or-ws-handshake-fn])
 
@@ -50,13 +51,12 @@
           :ch-recv ch-recv
           :connected-uids connected-uids
           :send-fn send-fn
-          :stop-the-thing (sente/start-chsk-router! ch-recv event-msg-handler*)
+          :stop-fn (sente/start-chsk-router! ch-recv event-msg-handler*)
           :ring-handlers
           (->WSRingHandlers ajax-post-fn ajax-get-or-ws-handshake-fn)))))
   (stop [component]
-    (when ch-recv (async/close! ch-recv))
+    (when-let [stop-fn (:stop-fn component)] (stop-fn))
     (log/debug "WebSocket connection stopped")
-    (:stop-the-thing component)
     (assoc component
       :ch-recv nil :connected-uids nil :send-fn nil :ring-handlers nil)))
 
@@ -65,7 +65,7 @@
   ((:send-fn ws-connection) user-id event))
 
 (defn broadcast! [ws-connection event]
-  (let [uids (ws-connection :connected-uids )]
+  (let [uids (ws-connection :connected-uids)]
     (doseq [uid (:any @uids)] (send! ws-connection uid event))))
 
 (defn ring-handlers [ws-connection]
@@ -74,6 +74,3 @@
 
 (defn new-ws-connection []
   (map->WSConnection {}))
-
-
-

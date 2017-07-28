@@ -2,4 +2,4 @@
   (:require [environ.core :refer [env]]))
 
 (defn get-config []
-  {:port (Integer/parseInt (or (env :port) "8080"))})
+  {:port (Integer/parseInt (env :port "8080"))})
