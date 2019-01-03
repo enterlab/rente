@@ -45,8 +45,7 @@
                    {:dependencies [[org.clojure/tools.namespace "0.3.0-alpha4"]
                                    [figwheel "0.5.18"]]
 
-                    :plugins [[lein-figwheel "0.5.18"]
-                              [lein-environ "1.1.0"]]
+                    :plugins [[lein-figwheel "0.5.18"]]
 
                     :source-paths ["dev"]
                     :resource-paths ^:replace
