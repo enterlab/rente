@@ -8,14 +8,22 @@
   [[_ event]]
   (js/console.log "PUSHed :rente/testevent from server: %s " (pr-str event)))
 
+(defmethod push-msg-handler :chsk/ws-ping
+  [[_ event]]
+  (js/console.log "ping from server"))
+
 (defmulti event-msg-handler :id) ; Dispatch on event-id
 
 (defmethod event-msg-handler :default ; Fallback
   [{:as ev-msg :keys [event]}]
   (js/console.log "Unhandled event: %s" (pr-str event)))
 
+(defmethod event-msg-handler :chsk/handshake
+  [{[_old-ev-msg new-ev-msg] :?data :as ev-msg}] 
+  (js/console.log "Channel socket handshake"))
+
 (defmethod event-msg-handler :chsk/state
-  [{[_old-ev-msg new-ev-msg] :?data, :as ev-msg}]
+  [{[_old-ev-msg new-ev-msg] :?data :as ev-msg}]
   (if (:first-open? new-ev-msg)
     (js/console.log "Channel socket successfully established!")
     (js/console.log "Channel socket state change: %s" (pr-str new-ev-msg))))
