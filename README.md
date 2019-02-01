@@ -81,7 +81,7 @@ Inspired by https://github.com/gsnewmark/gsn-spa-template.git
 
 ## License
 
-Copyright © Enterlab 2014-2017
+Copyright © Enterlab 2014-2019
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
